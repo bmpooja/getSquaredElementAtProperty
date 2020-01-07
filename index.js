@@ -1,28 +1,26 @@
-function getSquaredElementsAtProperty(obj, key) {
+function getOddElementsAtProperty(obj, key) {
   // your code here
   /* START SOLUTION */
   var arr = obj[key]
+  var newArray=[]
   if(!obj[key]){
-    return [];
+      return []
   }
-  
-  if(arr.length===0){
+  if(arr.length=== 0){
       return []
   }
   if(!Array.isArray(obj[key])){
       return []
-  } 
-
-  let result=  arr.map(function(curValue){
-       acc= curValue * curValue 
-       return acc
-    })
-    return result
+  }
+  let result = arr.map(element =>{
+      if( element % 2 !== 0)
+      return newArray.push(element)
+  })
+return newArray
   /* END SOLUTION */
 }
-
 var obj = {
-  key: [2, 1, 5]
+  key: [1, 2, 3, 4, 5]
 };
-var output = getSquaredElementsAtProperty(obj, 'key');
-console.log(output); // --> [4, 1, 25]
+var output = getOddElementsAtProperty(obj, 'key');
+console.log(output); // --> [1, 3, 5]
